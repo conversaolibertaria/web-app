@@ -9,7 +9,7 @@ const nextConfig = {
   basePath: '/web-app',
   assetPrefix: '/web-app',
   env: {
-    NEXT_PUBLIC_FAVICON: '/web-app',
+    NEXT_PUBLIC_BASEPATH: '/web-app',
   },
 }
 
