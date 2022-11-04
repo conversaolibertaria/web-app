@@ -9,6 +9,9 @@ const nextConfig = {
   },
   basePath: '/web-app',
   assetPrefix: '/web-app',
+  env: {
+    NEXT_PUBLIC_FAVICON: '/web-app',
+  },
 }
 
 module.exports = nextConfig
