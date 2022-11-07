@@ -1,9 +1,14 @@
+import { FormEvent } from 'react'
 import styles from '../styles/Index.module.css'
 
 export default function Home () {
+  function handleLogin (event: FormEvent) {
+    event.preventDefault()
+  }
+
   return (
     <div className={styles.container}>
-      <form action="" className={styles['login-form']}>
+      <form onSubmit={handleLogin} className={styles['login-form']}>
         <img src={process.env.NEXT_PUBLIC_BASEPATH + '/assets/liberty_or_death.png'} alt="" />
         <div className="input-group">
           <label htmlFor="user-input">User</label>
