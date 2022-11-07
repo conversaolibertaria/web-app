@@ -4,13 +4,13 @@ const nextConfig = {
   swcMinify: true,
   images: {
     loader: 'akamai',
-    path: '',
+    path: 'akamai'
   },
   basePath: '/web-app',
   assetPrefix: '/web-app',
   env: {
-    NEXT_PUBLIC_BASEPATH: '/web-app',
-  },
+    NEXT_PUBLIC_BASEPATH: '/web-app'
+  }
 }
 
 module.exports = nextConfig
