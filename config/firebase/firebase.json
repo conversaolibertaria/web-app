@@ -1,0 +1,11 @@
+{
+  "database": {
+    "rules": "firebase-rules.json"
+  },
+  "emulators": {
+    "database": {
+      "port": "9999",
+      "host": "0.0.0.0"
+    }
+  }
+}

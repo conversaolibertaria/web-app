@@ -1,0 +1,41 @@
+services:
+  web-app:
+    build: .
+    container_name: conv-libertaria-fe
+    image: conv-libertaria-fe
+    volumes:
+      - .:/app
+    ports:
+      - 3000:3000
+    environment:
+      - GCP_PROJECT_ID=conversao-libertaria
+      - FIRESTORE_HOST=firebase
+      - FIRESTORE_PORT=8080
+    networks:
+      - conversao-libertaria
+    depends_on:
+      - firebase
+
+  firebase:
+    image: spine3/firebase-emulator
+    container_name: conv-libertaria-firebase
+    volumes:
+      - ./config/firebase:/home/node
+    ports:
+      - 9000:9000
+      - 8080:8080
+      - 4000:4000
+      - 9099:9099
+      - 8085:8085
+      - 5001:5001
+      - 9199:9199
+    environment:
+      - GCP_PROJECT=conversa-libertaria
+      - ENABLE_UI=true
+    networks:
+      - conversao-libertaria
+
+networks:
+  conversao-libertaria:
+    external: true
+    driver: bridge
