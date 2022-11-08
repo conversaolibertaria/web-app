@@ -1,5 +1,6 @@
 import { FormEvent } from 'react'
-import styles from '../styles/Index.module.css'
+
+import styles from '@/styles/Index.module.css'
 
 export default function Home () {
   function handleLogin (event: FormEvent) {
@@ -7,6 +8,7 @@ export default function Home () {
   }
 
   return (
+    <>
     <div className={styles.container}>
       <form onSubmit={handleLogin} className={styles['login-form']}>
         <img src={process.env.NEXT_PUBLIC_BASEPATH + '/assets/liberty_or_death.png'} alt="" />
@@ -23,5 +25,6 @@ export default function Home () {
         </div>
       </form>
     </div>
+   </>
   )
 }
