@@ -35,4 +35,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Firebase logs
+config/firebase/*.log
 .vscode
