@@ -8,9 +8,10 @@ services:
     ports:
       - 3000:3000
     environment:
-      - GCP_PROJECT_ID=conversaolibertaria
-      - FIRESTORE_HOST=firebase
-      - FIRESTORE_PORT=8080
+      - NEXT_PUBLIC_FIREBASE_PROJECT_ID=conversaolibertaria
+      - NEXT_PUBLIC_FIREBASE_HOST=firebase
+      - NEXT_PUBLIC_FIRESTORE_PORT=8080
+      - NEXT_PUBLIC_AUTH_PORT=9099
     networks:
       - conversao-libertaria
     depends_on:
