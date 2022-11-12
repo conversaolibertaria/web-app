@@ -3,14 +3,19 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    loader: 'akamai',
-    path: 'akamai'
+    loader: "akamai",
+    path: "akamai",
   },
-  basePath: '/web-app',
-  assetPrefix: '/web-app',
+  basePath: "/web-app",
+  assetPrefix: "/web-app",
   env: {
-    NEXT_PUBLIC_BASEPATH: '/web-app'
-  }
-}
+    NEXT_PUBLIC_BASEPATH: "/web-app",
+  },
+  webpack: (config) => {
+    config.resolve.fallback = { fs: false };
 
-module.exports = nextConfig
+    return config;
+  },
+};
+
+module.exports = nextConfig;
