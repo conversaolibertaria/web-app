@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from 'react'
 
 import { FirebaseLoginService } from '@/core/services/firebase/firebase-login-service'
 import { USERS_COLLECTION } from '@/core/data/local-storage'
-import { User } from '@/core/domain/user'
+import { User } from '@/core/entities/user'
 
 const firebaseLoginService = new FirebaseLoginService()
 
@@ -46,6 +46,10 @@ export function AuthProvider(props: AuthProvider) {
         localStorage.setItem(USERS_COLLECTION, JSON.stringify(user.unwrap()))
         setIsAuth(true)
         setHasError(false)
+      } else {
+        setIsAuth(false)
+        setHasError(true)
+        setError(user.unwrapErr().message)
       }
     }
 

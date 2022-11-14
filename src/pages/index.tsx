@@ -1,11 +1,15 @@
-import Image from 'next/image'
-
-import { StyledLogin } from '@/styles/Login'
-import { useAuth } from '@/hooks/useAuth'
 import { useEffect } from 'react'
+import { BeatLoader } from 'react-spinners'
+import { useTheme } from 'styled-components'
+
+import { If } from '@/components/If'
+import { useAuth } from '@/hooks/useAuth'
+import { Settings } from '@/core/settings'
+import * as Styled from '@/styles/pages/index.style'
 
 export default function Home() {
-  const { login, isAuth } = useAuth()
+  const { login, isAuth, isLoading } = useAuth()
+  const { colors } = useTheme()
 
   const handleForm = async (e: any) => {
     e.preventDefault()
@@ -21,35 +25,44 @@ export default function Home() {
 
   return (
     <>
-      <StyledLogin>
-        <form onSubmit={handleForm} className="login-form">
-          <div className="input-group">
-            <label htmlFor="email-input">User</label>
-            <input
-              id="email-input"
-              className="login-form-input"
-              name="email"
-              type="email"
-              required
-            />
-          </div>
-          <div className="input-group">
-            <label htmlFor="password-input">Password</label>
-            <input
-              id="password-input"
-              className="login-form-input"
-              type="password"
-              name="password"
-              required
-            />
-          </div>
-          <div className={`input-group ${'login-input-button'}`}>
-            <button type="submit" className="login-button">
-              Login
-            </button>
-          </div>
-        </form>
-      </StyledLogin>
+      <If
+        condition={!isLoading}
+        elseComponent={<BeatLoader color={colors.primary} />}
+      >
+        <Styled.Container>
+          <Styled.Form onSubmit={handleForm}>
+            <Styled.InputGroup>
+              <Styled.Label htmlFor="email-input">User</Styled.Label>
+              <Styled.Input
+                id="email-input"
+                name="email"
+                type="email"
+                required
+              />
+            </Styled.InputGroup>
+            <Styled.InputGroup>
+              <label htmlFor="password-input">Password</label>
+              <Styled.Input
+                id="password-input"
+                type="password"
+                name="password"
+                required
+              />
+            </Styled.InputGroup>
+            <Styled.ButtonBox>
+              <Styled.Button type="submit">Login</Styled.Button>
+            </Styled.ButtonBox>
+          </Styled.Form>
+        </Styled.Container>
+      </If>
+      <Styled.ImageBox>
+        <Styled.SImage
+          priority
+          fill
+          alt="login_cover"
+          src={Settings.app.basePath + '/assets/login_bg.png'}
+        />
+      </Styled.ImageBox>
     </>
   )
 }

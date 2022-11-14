@@ -9,12 +9,14 @@ function handleEnv(env: string) {
 
 const appSchema = z.object({
   nodeEnv: z.string().refine(handleEnv),
+  basePath: z.string(),
 });
 
 export type AppSettings = z.infer<typeof appSchema>;
 
 const appSettings: AppSettings = {
   nodeEnv: process.env.NEXT_PUBLIC_APP_ENV,
+  basePath: process.env.NEXT_PUBLIC_BASEPATH,
 };
 
 const validation = appSchema.safeParse(appSettings);

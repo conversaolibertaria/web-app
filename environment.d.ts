@@ -3,6 +3,7 @@ declare global {
     interface ProcessEnv {
       // nextjs
       NEXT_PUBLIC_APP_ENV: string;
+      NEXT_PUBLIC_BASEPATH: string;
 
       // firebase client
       NEXT_PUBLIC_FIREBASE_PROJECT_ID: string;

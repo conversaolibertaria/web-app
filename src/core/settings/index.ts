@@ -27,15 +27,9 @@ function loadSettings() {
   resultList.forEach(({ setting, result }) => {
     if (result.isErr()) throw result.unwrapErr();
 
-    console.log("setting", setting);
-
     Settings[setting] = result.unwrap();
   });
 }
-
-console.log(
-  process.env.NEXT_PUBLIC_APP_ENV,
-);
 
 loadSettings();
 
