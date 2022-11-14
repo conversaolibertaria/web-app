@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const StyledLogin = styled.div`
   padding: 15px;
@@ -36,4 +36,4 @@ export const StyledLogin = styled.div`
     filter: saturate(60%) grayscale(30%);
     cursor: not-allowed;
   }
-`;
+`

@@ -7,35 +7,12 @@ services:
       - .:/app
     ports:
       - 3000:3000
-    environment:
-      - NEXT_PUBLIC_FIREBASE_PROJECT_ID=conversaolibertaria
-      - NEXT_PUBLIC_FIREBASE_HOST=firebase
-      - NEXT_PUBLIC_FIRESTORE_PORT=8080
-      - NEXT_PUBLIC_AUTH_PORT=9099
+    env_file:
+      - .env.local
     networks:
       - conversao-libertaria
     depends_on:
       - firebase
-
-  firebase:
-    image: spine3/firebase-emulator
-    container_name: conv-libertaria-firebase
-    volumes:
-      - ./config/firebase:/firebase
-      - ./config/firebase/baseline-data:/firebase/baseline-data
-    ports:
-      - 9000:9000
-      - 8080:8080
-      - 4000:4000
-      - 9099:9099
-      - 8085:8085
-      - 5001:5001
-      - 9199:9199
-    environment:
-      - GCP_PROJECT=conversaolibertaria
-      - ENABLE_UI=true
-    networks:
-      - conversao-libertaria
 
 networks:
   conversao-libertaria:

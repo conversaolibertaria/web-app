@@ -2,6 +2,7 @@ import styled, { ThemeProvider } from 'styled-components'
 
 import { GlobalStyle } from '@/styles/GlobalStyle'
 import { baseTheme } from '@/styles/themes'
+import { AuthProvider } from '@/hooks/useAuth'
 
 interface Props {
   children: React.ReactNode
@@ -11,7 +12,9 @@ function Layout({ children }: Props) {
   return (
     <ThemeProvider theme={baseTheme}>
       <GlobalStyle />
-      <Container>{children}</Container>
+      <AuthProvider>
+        <Container>{children}</Container>
+      </AuthProvider>
     </ThemeProvider>
   )
 }
