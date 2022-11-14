@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const StyledLogin = styled.div`
-  padding: 15px;
-  padding-top: 3rem;
+  padding: 10px;
+  padding-top: 2rem;
   display: flex;
   justify-content: center;
 

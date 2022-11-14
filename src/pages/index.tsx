@@ -23,6 +23,12 @@ export default function Home() {
     <>
       <StyledLogin>
         <form onSubmit={handleForm} className="login-form">
+          <img
+            src={
+              process.env.NEXT_PUBLIC_BASEPATH + '/assets/liberty_or_death.png'
+            }
+            alt="Liberty Or Death flag"
+          />
           <div className="input-group">
             <label htmlFor="email-input">User</label>
             <input

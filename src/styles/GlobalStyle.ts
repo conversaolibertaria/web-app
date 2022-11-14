@@ -36,7 +36,7 @@ export const GlobalStyle = createGlobalStyle`
     display: flex;
     flex-direction: column;
     gap: 15px;
-    padding: 0 2rem;
+    padding: 0 1rem;
     margin-bottom: 15px;
   }
 
