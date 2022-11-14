@@ -30,6 +30,12 @@ export default function Home() {
         elseComponent={<BeatLoader color={colors.primary} />}
       >
         <Styled.Container>
+          <Styled.ImageBox>
+            <Styled.SImage
+              alt="login_cover"
+              src={Settings.app.basePath + '/assets/login_bg.png'}
+            />
+          </Styled.ImageBox>
           <Styled.Form onSubmit={handleForm}>
             <Styled.InputGroup>
               <Styled.Label htmlFor="email-input">User</Styled.Label>
@@ -55,14 +61,6 @@ export default function Home() {
           </Styled.Form>
         </Styled.Container>
       </If>
-      <Styled.ImageBox>
-        <Styled.SImage
-          priority
-          fill
-          alt="login_cover"
-          src={Settings.app.basePath + '/assets/login_bg.png'}
-        />
-      </Styled.ImageBox>
     </>
   )
 }

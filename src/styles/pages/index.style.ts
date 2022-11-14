@@ -1,13 +1,11 @@
 import styled from "styled-components";
-import Image from "next/image";
 
 export const Container = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
   width: 100%;
   max-width: 480px;
-  margin: auto 0;
 `;
 
 export const Form = styled.form`
@@ -25,7 +23,6 @@ export const Label = styled.label`
 `;
 
 export const Input = styled.input`
-  border: solid 1px ${({ theme }) => theme.colors.primary};
   border: solid 1px ${({ theme }) => theme.colors.primary};
   background: #f5dc0010;
 `;
@@ -51,13 +48,15 @@ export const Button = styled.button`
 `;
 
 export const ImageBox = styled.div`
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: -1;
+  margin-bottom: 50px;
+  width: 100%;
 `;
 
-export const SImage = styled(Image)`
+export const SImage = styled.img`
+  opacity: .5;
+  width: 100%;
 `;
