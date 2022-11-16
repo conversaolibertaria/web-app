@@ -38,4 +38,5 @@ next-env.d.ts
 
 # Firebase logs
 config/firebase/*.log
+config/firebase/.config
 .vscode

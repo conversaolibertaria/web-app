@@ -32,14 +32,6 @@ export const GlobalStyle = createGlobalStyle`
     cursor: pointer;
   }
 
-  .input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding: 0 2rem;
-    margin-bottom: 15px;
-  }
-
   @media (prefers-color-scheme: dark) {
     html {
       color-scheme: dark;
