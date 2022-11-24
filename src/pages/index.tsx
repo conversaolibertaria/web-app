@@ -6,10 +6,14 @@ import { If } from '@/components/If'
 import { useAuth } from '@/hooks/useAuth'
 import { Settings } from '@/core/settings'
 import * as Styled from '@/styles/pages/index.style'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { useRouter } from 'next/router'
 
-export default function Home() {
-  const { login, isAuth, isLoading } = useAuth()
+export default function Home () {
+  const { login, isAuth, isLoading, hasError, getError } = useAuth()
   const { colors } = useTheme()
+  const router = useRouter()
 
   const handleForm = async (e: any) => {
     e.preventDefault()
@@ -17,6 +21,12 @@ export default function Home() {
     const formData = Object.fromEntries(form.entries())
 
     await login(formData.email.toString(), formData.password.toString())
+    if (hasError) {
+      toast.error(getError())
+    }
+    if (isAuth) {
+      router.push('/home')
+    }
   }
 
   useEffect(() => {
@@ -30,6 +40,7 @@ export default function Home() {
         elseComponent={<BeatLoader color={colors.primary} />}
       >
         <Styled.Container>
+          <ToastContainer position="bottom-center" />
           <Styled.ImageBox>
             <Styled.SImage
               alt="login_cover"

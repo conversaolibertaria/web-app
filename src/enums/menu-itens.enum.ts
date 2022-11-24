@@ -1,0 +1,6 @@
+export enum MENU_ITENS {
+  HOME = 'HOME',
+  ABOUT = 'ABOUT',
+  ARTICLES = 'ARTICLES',
+  CONTACT = 'CONTACT',
+}
