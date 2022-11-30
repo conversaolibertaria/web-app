@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { BaseSyntheticEvent, useEffect } from 'react'
 import { BeatLoader } from 'react-spinners'
 import { useTheme } from 'styled-components'
 
@@ -11,7 +11,7 @@ export default function Home() {
   const { login, isAuth, isLoading } = useAuth()
   const { colors } = useTheme()
 
-  const handleForm = async (e: any) => {
+  const handleForm = async (e: BaseSyntheticEvent) => {
     e.preventDefault()
     const form = new FormData(e.target)
     const formData = Object.fromEntries(form.entries())

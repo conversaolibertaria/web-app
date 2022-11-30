@@ -31,7 +31,7 @@ export function AuthProvider(props: AuthProvider) {
     const result = await firebaseLoginService.login(email, password)
 
     if (result.isErr()) {
-      setError(result.unwrapErr().message)
+      setError(result.unwrapErr())
       setHasError(true)
       setIsAuth(false)
     } else {
