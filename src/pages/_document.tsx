@@ -1,6 +1,7 @@
 import Document, { DocumentContext, DocumentInitialProps } from 'next/document'
-import Head from 'next/head'
 import { ServerStyleSheet } from 'styled-components'
+// eslint-disable-next-line @next/next/no-head-import-in-document
+import Head from 'next/head'
 
 export default class MyDocument extends Document {
   static async getInitialProps(
